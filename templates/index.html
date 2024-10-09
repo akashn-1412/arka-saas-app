@@ -1,0 +1,146 @@
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        function showSection(section) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(sec => sec.style.display = 'none');
+
+            // Show the selected section
+            document.getElementById(section).style.display = 'block';
+        }
+
+        // Show the dashboard section by default
+        window.onload = function() {
+            showSection('dashboard');
+        }
+    </script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-1/4 bg-gray-900 h-screen p-5">
+            <div class="text-white text-2xl font-bold mb-10 flex items-center">
+                <img src="{{ url_for('static', filename='logo.svg') }}" alt="Logo" class="w-20 h-20 mr-3 logo">
+                Arka Consultancy
+            </div>
+        
+            <nav class="space-y-4">
+                <a href="#" class="flex items-center text-gray-300 hover:text-white" onclick="showSection('dashboard')">
+                    <i class="fas fa-th-large mr-3"></i>
+                    Dashboard
+                </a>
+                <a href="#" class="flex items-center text-gray-300 hover:text-white" onclick="showSection('conversation')">
+                    <i class="fas fa-comments mr-3"></i>
+                    AI Conversation
+                </a>
+                <a href="#" class="flex items-center text-gray-300 hover:text-white" onclick="showSection('imageGeneration')">
+                    <i class="fas fa-image mr-3"></i>
+                    Icon Generator
+                </a>
+                <a href="#" class="flex items-center text-gray-300 hover:text-white" onclick="showSection('videoGeneration')">
+                    <i class="fas fa-video mr-3"></i>
+                    Business strategies
+                </a>
+                <a href="#" class="flex items-center text-gray-300 hover:text-white" onclick="showSection('musicGeneration')">
+                    <i class="fas fa-music mr-3"></i>
+                    ROI Calculator
+                </a>
+                <a href="#" class="flex items-center text-gray-300 hover:text-white" onclick="showSection('codeGeneration')">
+                    <i class="fas fa-code mr-3"></i>
+                    Code Generation
+                </a>
+                <a href="#" class="flex items-center text-gray-300 hover:text-white">
+                    <i class="fas fa-cog mr-3"></i>
+                    Settings
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="w-3/4 p-10">
+            <h1 class="text-4xl font-bold mb-4">Explore the power of AI</h1>
+            <p class="text-gray-600 mb-10">Chat with the smartest AI - Experience the power of AI</p>
+            
+            <div id="dashboard" class="content-section">
+                <div class="space-y-4">
+                    <a href="https://huggingface.co/spaces/aakritim/GPT-WRITER-3" class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-lg transition">
+                        <div class="flex items-center">
+                            <div class="bg-purple-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-comments text-purple-500"></i>
+                            </div>
+                            <div class="text-lg font-medium">Conversation</div>
+                        </div>
+                        <i class="fas fa-arrow-right text-gray-400"></i>
+                    </a>
+
+                    <a href="#" class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-lg transition">
+                        <div class="flex items-center">
+                            <div class="bg-green-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-music text-green-500"></i>
+                            </div>
+                            <div class="text-lg font-medium">Icon Generator</div>
+                        </div>
+                        <i class="fas fa-arrow-right text-gray-400"></i>
+                    </a>
+                    <a href="#" class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-lg transition">
+                        <div class="flex items-center">
+                            <div class="bg-pink-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-image text-pink-500"></i>
+                            </div>
+                            <div class="text-lg font-medium">Business strategies</div>
+                        </div>
+                        <i class="fas fa-arrow-right text-gray-400"></i>
+                    </a>
+                    <a href="https://roi-calculator-nu.vercel.app" class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-lg transition">
+                        <div class="flex items-center">
+                            <div class="bg-orange-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-video text-orange-500"></i>
+                            </div>
+                            <div class="text-lg font-medium">ROI Calculator</div>
+                        </div>
+                        <i class="fas fa-arrow-right text-gray-400"></i>
+                    </a>
+                    <a href="#" class="flex items-center justify-between p-4 bg-white rounded-lg shadow hover:shadow-lg transition">
+                        <div class="flex items-center">
+                            <div class="bg-green-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-code text-green-500"></i>
+                            </div>
+                            <div class="text-lg font-medium">Code Generation</div>
+                        </div>
+                        <i class="fas fa-arrow-right text-gray-400"></i>
+                    </a>
+                </div>
+                
+            </div>
+
+            <div id="conversation" class="content-section" style="display: none;">
+                <h2 class="text-2xl font-bold mb-4">Conversation Section</h2>
+                <p>Details about the conversation generation go here.</p>
+            </div>
+
+            <div id="imageGeneration" class="content-section" style="display: none;">
+                <h2 class="text-2xl font-bold mb-4">Icon Generator</h2>
+                <p>Details about the image generation go here.</p>
+            </div>
+
+            <div id="videoGeneration" class="content-section" style="display: none;">
+                <h2 class="text-2xl font-bold mb-4">Business strategies</h2>
+                <p>Details about the video generation go here.</p>
+            </div>
+
+            <div id="musicGeneration" class="content-section" style="display: none;">
+                <h2 class="text-2xl font-bold mb-4">ROI Calculator</h2>
+                <p>Details about the music generation go here.</p>
+            </div>
+
+            <div id="codeGeneration" class="content-section" style="display: none;">
+                <h2 class="text-2xl font-bold mb-4">Code Generation Section</h2>
+                <p>Details about the code generation go here.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
